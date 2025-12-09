@@ -1,0 +1,38 @@
+{% extends 'layouts.html' %}
+{% block content %}
+<div class="card table-card">
+  <h2 class="card-title">Employees List</h2>
+  <div class="table-responsive">
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>NIC</th>
+          <th>DOB</th>
+          <th>Contact</th>
+          <th>Department</th>
+          <th>Auth</th>
+          <th>Email</th>
+          <th>Joining</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in employees %}
+        <tr>
+          <td>{{ e.employee_id }}</td>
+          <td>{{ e.first_name }} {{ e.last_name }}</td>
+          <td>{{ e.nic_number or 'N/A' }}</td>
+          <td>{{ e.date_of_birth or 'N/A' }}</td>
+          <td>{{ e.contact_number }}</td>
+          <td>{{ e.department }}</td>
+          <td>{{ e.authentication }}</td>
+          <td>{{ e.email }}</td>
+          <td>{{ e.date_of_joining or 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
